@@ -70,7 +70,7 @@ export default {
     food: 'food',
     drink: 'drink',
     music: 'music',
-    phone: 'mobile phone',
+    phone: 'mobile phone'
   },
   fileAgent: {
     helpText: 'Click or drag the file here',

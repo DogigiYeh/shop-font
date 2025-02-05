@@ -8,6 +8,7 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
+
 // Composables
 import { createVuetify } from 'vuetify'
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
@@ -20,6 +21,7 @@ export default createVuetify({
     adapter: createVueI18nAdapter({ i18n, useI18n }),
   },
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
   },
 })
+

@@ -21,7 +21,7 @@ import ProductCard from '@/components/ProductCard.vue'
 
 const { api } = useAxios()
 
-const ITEMS_PER_PAGE = 2
+const ITEMS_PER_PAGE = 8
 const currentPage = ref(1)
 const totalPage = computed(() => Math.ceil(products.value.length / ITEMS_PER_PAGE))
 
