@@ -55,7 +55,7 @@ const navs = computed(() => {
       icon: 'mdi-account-group',
       children: [
         { to: '/admin/reports', text: t('nav.reportManagement'), icon: 'mdi-file-document' },  // ✅ 回報管理
-        { to: '/admin/users', text: t('nav.userBlockade'), icon: 'mdi-account' }  // ✅ 用戶封鎖
+        { to: '/admin/users', text: t('nav.userBlockade'), icon: 'mdi mdi-account-cancel' }  // ✅ 用戶封鎖
       ]
     },
     { to: '/', text: t('nav.home'), icon: 'mdi-home' },

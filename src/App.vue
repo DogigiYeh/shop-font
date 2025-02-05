@@ -1,5 +1,6 @@
 <template>
-  <v-app class="bg-lime-lighten-5">
+  <v-app
+style="background-color: var(--v-theme-myWhiteColor1); color: var(--v-theme-myGreenColor)">
     <router-view :key="$route.fullPath" />
   </v-app>
 </template>

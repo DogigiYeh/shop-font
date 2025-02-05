@@ -6,7 +6,7 @@ export default {
     register: '註冊',
     login: '登入',
     cart: '日記',
-    orders: '訂單',
+    orders: '關於',
     admin: '管理',
     logout: '登出',
     adminProducts: '頁面管理',
