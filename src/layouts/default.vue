@@ -49,9 +49,9 @@ const navs = computed(() => {
   return [
     { to: '/register', text: t('nav.register'), icon: 'mdi-account-plus', show: !user.isLoggedIn },
     { to: '/login', text: t('nav.login'), icon: 'mdi-account-arrow-left', show: !user.isLoggedIn },
-    { to: '/orders', text: t('nav.home'), icon: 'mdi-home', show: user.isLoggedIn },  // 首頁
+    { to: '/', text: t('nav.home'), icon: 'mdi-home', show: user.isLoggedIn },  // 首頁
     { to: '/orders', text: t('nav.orders'), icon: 'mdi-barley', show: user.isLoggedIn },  // 關於
-    { to: '/orders', text: t('nav.orders'), icon: ' mdi-magnify-expand', show: user.isLoggedIn },  // 探索
+    { to: '/orders', text: t('nav.explore'), icon: ' mdi-magnify-expand', show: user.isLoggedIn },  // 探索
     { to: '/cart', text: t('nav.cart'), icon: 'mdi-bookshelf', show: user.isLoggedIn }, // 日記
     { to: '/admin', text: t('nav.admin'), icon: 'mdi-cog', show: user.isLoggedIn && user.isAdmin },
   ]

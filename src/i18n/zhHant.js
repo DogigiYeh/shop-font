@@ -8,6 +8,7 @@ export default {
     cart: '日記',
     orders: '關於',
     admin: '管理',
+    explore: '探索',
     logout: '登出',
     adminProducts: '頁面管理',
     adminOrders: '用戶管理',
