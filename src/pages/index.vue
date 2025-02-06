@@ -17,10 +17,15 @@
         class="mySwiper"
       >
         <swiper-slide><img src="../assets/01.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/09.jpg" alt=""></swiper-slide>
         <swiper-slide><img src="../assets/02.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/06.jpg" alt=""></swiper-slide>
         <swiper-slide><img src="../assets/03.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/07.jpg" alt=""></swiper-slide>
         <swiper-slide><img src="../assets/04.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/08.jpg" alt=""></swiper-slide>
         <swiper-slide><img src="../assets/05.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/10.jpg" alt=""></swiper-slide>
       </swiper>
     </div>
 
