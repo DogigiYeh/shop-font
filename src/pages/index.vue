@@ -30,11 +30,13 @@
     </div>
 
     <!-- 搜索框 -->
+    <div class="line-separator"></div> <!-- 上分隔線 -->
     <v-row>
       <v-col cols="12">
-        <v-text-field v-model="search" prepend-inner-icon="mdi-magnify"></v-text-field>
+        <v-text-field v-model="search" label="Search" rounded="lg" prepend-inner-icon="mdi-magnify"></v-text-field>
       </v-col>
     </v-row>
+    <div class="line-separator"></div> <!-- 下分隔線 -->
 
     <!-- 產品列表 -->
     <v-row>
@@ -113,5 +115,10 @@ getProducts()
   object-fit: cover; /* 讓圖片滿版，裁剪超出的部分 */
   border-radius: 10px; /* 可選，讓圖片有點圓角 */
 }
-</style>
 
+/* 新增分隔線樣式 */
+.line-separator {
+  border-top: 1px solid #ccc; /* 灰色分隔線 */
+  margin: 20px 0; /* 上下間距 */
+}
+</style>
