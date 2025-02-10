@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <div class="container">
+      <div class="grid">
+        <div class="text">DENDRO</div>
+        <div class="text">WELCOME</div>
+      </div>
+    </div>
     <!-- 分離 Swiper 區塊 -->
     <div class="swiper-container">
       <swiper
@@ -16,16 +22,16 @@
         :modules="modules"
         class="mySwiper"
       >
-        <swiper-slide><img src="../assets/01.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/09.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/02.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/06.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/03.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/07.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/04.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/08.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/05.jpg" alt=""></swiper-slide>
-        <swiper-slide><img src="../assets/10.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/01.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/09.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/02.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/06.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/03.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/07.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/04.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/08.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/05.jpg"></swiper-slide>
+        <swiper-slide><img src="../assets/10.jpg"></swiper-slide>
       </swiper>
     </div>
 
@@ -62,6 +68,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/free-mode'  // 加入 FreeMode 模組的樣式
+import 'animate.css'
 import { Autoplay, Pagination, FreeMode } from 'swiper/modules' // 移除 Navigation，加入 FreeMode
 
 const modules = [Autoplay, Pagination, FreeMode] // 不再包含 Navigation
@@ -120,5 +127,29 @@ getProducts()
 .line-separator {
   border-top: 1px solid #ccc; /* 灰色分隔線 */
   margin: 20px 0; /* 上下間距 */
+}
+
+.container {
+  position: relative; /* 讓內部的絕對定位元素相對於此 */
+}
+
+.grid {
+  position: absolute;
+  top: 50%;  /* 調整這個數值來改變文字的位置 */
+  left: 10%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  z-index: 10; /* 確保文字在圖片上方 */
+}
+
+.text {
+  font-size: 6rem; /* 文字大小 */
+  font-weight: bold;
+  font-family: 'Merriweather';
+  color: #140e02; /* 文字顏色，可根據需求調整 */
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 </style>

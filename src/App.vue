@@ -9,6 +9,7 @@ style="background-color: var(--v-theme-myWhiteColor1); color: var(--v-theme-myGr
 :root {
   --v-theme-myGreenColor: #102b05; /* 定義一個新的顏色 */
   --v-theme-myBrownColor: #422b01;  /* 另一個新的顏色 */
+  --v-theme-myBrownColor: #140e02;  /* 另一個新的顏色 */
   --v-theme-myWhiteColor1: #efeee7;  /* 另一個新的顏色 */
   --v-theme-myWhiteColor2: #eae5d3;  /* 另一個新的顏色 */
   --v-theme-myWhiteColor3: #e2decc;  /* 另一個新的顏色 */
