@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar style="background-color: var(--v-theme-myWhiteColor1); color: var(--v-theme-);">
+  <v-app-bar id="navbar" style="background-color: var(--v-theme-myWhiteColor1); color: var(--v-theme-);">
     <v-container class="d-flex align-center">
       <v-btn to="/" :active="false">Dendro</v-btn>
       <v-spacer />
@@ -37,6 +37,41 @@ import { useUserStore } from '@/stores/user'
 import { useAxios } from '@/composables/axios'
 import { useSnackbar } from 'vuetify-use-dialog'
 import { useRouter } from 'vue-router'
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
+
+// 註冊 ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  let lastScrollY = window.scrollY;
+  let isScrollingUp = false;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < lastScrollY) {
+      // 向上滾動 -> 立即顯示 Navbar
+      if (!isScrollingUp) {
+        isScrollingUp = true;
+        gsap.to("#navbar", { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" });
+      }
+    } else {
+      // 向下滾動 -> 隱藏 Navbar
+      if (isScrollingUp) {
+        isScrollingUp = false;
+        gsap.to("#navbar", { y: -100, opacity: 0, duration: 0.3, ease: "power2.out" });
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  });
+});
+
+
+
+
 
 const { t } = useI18n()
 const user = useUserStore()

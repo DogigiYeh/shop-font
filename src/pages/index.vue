@@ -1,13 +1,15 @@
 <template>
   <v-container>
-    <div class="container">
-      <div class="grid">
-        <div class="text">DENDRO</div>
-        <div class="text">WELCOME</div>
+    <!-- 圖片上的文字 -->
+    <div id="text" class="container ">
+      <div class="grid1 animate__animated animate__fadeInUp">
+        <div class="text1">DENDRO</div>
+        <div class="text1">WELCOME</div>
+        <div class="text1 small-text1">Living Memories Encased in Rings</div>
       </div>
     </div>
     <!-- 分離 Swiper 區塊 -->
-    <div class="swiper-container">
+    <div id="img" class="swiper-container animate__animated animate__slideInDown">
       <swiper
         :slides-per-view="3"
         :space-between="30"
@@ -35,14 +37,62 @@
       </swiper>
     </div>
 
-    <!-- 搜索框 -->
     <div class="line-separator"></div> <!-- 上分隔線 -->
+    <!-- about 區 -->
+    <v-row class="ma-0 pa-0">
+      <v-col cols="12" class="pa-0">
+        <div id="text" class="container ">
+          <div class="grid2">
+            <div class="text2">ABOUT</div>
+            <div class="text2 small-text2">Echoes of Growth</div>
+        <!-- 店家資訊 -->
+            <v-row class="mt-10 d-flex align-center">
+        <!-- 左側圖片 -->
+            <v-col cols="12" md="6">
+              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg">
+            </v-col>
+
+                <!-- 右側內容 -->
+                <v-col cols="12" md="6" class="text-left">
+                  <h3 class="text-lg font-bold">DENDRO 年輪時間日記</h3>
+                  <p class="text-gray-600 mt-2">
+                      在快速變遷的時代，我們的情感與記憶常被忽略。<br>
+                      「年輪說」誕⽣於⼀個願望：<br>
+                      為每個⼈提供⼀⽚匿名書寫的淨⼟，<br>
+                      讓真實情感化為永恆印記。<br>
+                      不可編輯與刪除的設計，賦予當下珍貴的重量；<br>
+                      分享⽇記，則連結個體與世界，透過探索他⼈的故事，<br>
+                      發現共鳴與治癒⼒量。<br>
+                      我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡，
+                      溫暖並豐富每個⼈的內⼼世界。<br>
+                  </p>
+                  <div class="content">
+                <!-- 這裡可以放其他內容，空白區會自動保持 -->
+                  </div>
+                </v-col>
+            </v-row>
+          </div>
+        </div>
+      </v-col>
+    </v-row>
+
+    <!-- 搜索框 -->
+    <!-- <div class="line-separator"></div> 上分隔線 -->
+    <v-row>
+      <v-col cols="12">
+        <div id="text" class="container">
+          <div class="grid3">
+            <div class="text3">EXPLORE</div>
+            <div class="text3 small-text3">Looking for Other People’s Stories</div>
+          </div>
+        </div>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col cols="12">
         <v-text-field v-model="search" label="Search" rounded="lg" prepend-inner-icon="mdi-magnify"></v-text-field>
       </v-col>
     </v-row>
-    <div class="line-separator"></div> <!-- 下分隔線 -->
 
     <!-- 產品列表 -->
     <v-row>
@@ -57,6 +107,7 @@
         <v-pagination v-model="currentPage" :length="totalPage"></v-pagination>
       </v-col>
     </v-row>
+    <!-- <div class="line-separator"></div> 下分隔線 -->
   </v-container>
 </template>
 
@@ -69,7 +120,16 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/free-mode'  // 加入 FreeMode 模組的樣式
 import 'animate.css'
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Autoplay, Pagination, FreeMode } from 'swiper/modules' // 移除 Navigation，加入 FreeMode
+
+// 註冊插件
+gsap.registerPlugin(ScrollTrigger);
+
+
+// 讓 .box 從左邊滑入
+gsap.from(".box", { x: -200, opacity: 0, duration: 1 });
 
 const modules = [Autoplay, Pagination, FreeMode] // 不再包含 Navigation
 const { api } = useAxios()
@@ -133,23 +193,96 @@ getProducts()
   position: relative; /* 讓內部的絕對定位元素相對於此 */
 }
 
-.grid {
+.grid1 {
   position: absolute;
-  top: 50%;  /* 調整這個數值來改變文字的位置 */
-  left: 10%;
+  top: 10%;  /* 調整這個數值來改變文字的位置 */
+  left: -5%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: left;
   z-index: 10; /* 確保文字在圖片上方 */
 }
+.grid2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.text {
-  font-size: 6rem; /* 文字大小 */
+.grid3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text1 {
+  font-size: 5rem; /* 文字大小 */
   font-weight: bold;
   font-family: 'Merriweather';
   color: #140e02; /* 文字顏色，可根據需求調整 */
   padding: 10px 20px;
   border-radius: 10px;
 }
+
+.text2 {
+  font-size: 2rem; /* 文字大小 */
+  font-weight: bold;
+  font-family: 'Merriweather';
+  color: #140e02; /* 文字顏色，可根據需求調整 */
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.text3 {
+  font-size: 2rem; /* 文字大小 */
+  font-weight: bold;
+  font-family: 'Merriweather';
+  color: #140e02; /* 文字顏色，可根據需求調整 */
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.small-text1 {
+  font-size: 1.7rem; /* 讓第三行字變小 */
+  font-weight: bold;
+  color: #140e02;
+  margin-top: 0.5px; /* 與上方文字間距 */
+}
+
+.small-text2 {
+  font-size: 1rem; /* 讓第三行字變小 */
+  font-weight: bold;
+  color: #140e02;
+  margin-top: 0.1px; /* 與上方文字間距 */
+}
+
+.small-text2::after {
+  content: "";
+  display: block;
+  width: 100px; /* 控制短線的長度 */
+  height: 1px; /* 控制短線的粗細 */
+  background-color: #102b05; /* 可以改成你想要的顏色 */
+  margin: 20px auto 0;
+}
+
+.small-text3 {
+  font-size: 1rem; /* 讓第三行字變小 */
+  font-weight: bold;
+  color: #140e02;
+  margin-top: 0.1px; /* 與上方文字間距 */
+}
+
+.small-text3::after {
+  content: "";
+  display: block;
+  width: 100px; /* 控制短線的長度 */
+  height: 1px; /* 控制短線的粗細 */
+  background-color: #102b05; /* 可以改成你想要的顏色 */
+  margin: 20px auto 0;
+}
+
+#img {
+  animation-duration: 3s; /* don't forget to set a duration! */
+}
+
 </style>
