@@ -20,6 +20,9 @@ export default {
     home: '首頁',
     product: '商品',
   },
+  about: {
+    introduction: '簡介',
+  },
   register: {
     submit: '建立帳號',
     success: '註冊成功'

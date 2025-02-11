@@ -53,6 +53,7 @@
     class="mySwiper"
   >
 
+
     <!-- 🚀 Slide 1: "ABOUT" 區塊 -->
     <swiper-slide>
   <v-container class="pa-0">
@@ -106,13 +107,14 @@
           <v-row class="mt-10 d-flex align-center">
             <!-- 左側圖片 -->
             <v-col cols="12" md="4" class="d-flex justify-center">
-              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
+              <img id="img2" src="../assets/13.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
             </v-col>
             <!-- 右側文字內容 -->
             <v-col cols="12" md="6" class="text-right align-self-end">
               <h3 class="text5 text-lg font-bold">品牌故事</h3>
               <p class="text4 mt-5">
-                靈感來源於 "Dendrochronology"（樹木年輪學）這是⼀⾨透過分析年輪來研究歷史的科學<br />
+                靈感來源於 "Dendrochronology"（樹木年輪學）<br />
+                這是⼀⾨透過分析年輪來研究歷史的科學<br />
                 年輪不僅是時間的印記，更象徵著⽣命的延續與成⻑<br />
                 <br />
                 希望⼈們能像樹木⼀樣，將⾃⼰的故事層層累積，成為⼈⽣的年輪。每⼀次記憶的封存<br />
@@ -128,41 +130,44 @@
 
     <!-- 🚀 Slide 3 -->
     <swiper-slide>
-  <v-container class="pa-0">
+      <v-container class="pa-0">
     <v-row class="ma-1 pa-0">
       <v-col cols="12" class="pa-0">
         <div id="text" class="container">
           <div class="grid2 text-center">
-            <h2 class="text2">MOTIVATION</h2>
-            <p class="text2 small-text2">Echoes of Growth</p>
+            <h2 class="text2">STORY</h2>
+            <p class="text2 small-text25">Echoes of Growth</p>
           </div>
           <!-- 主要內容 -->
           <v-row class="mt-10 d-flex align-center">
-            <!-- 左側圖片 -->
-            <v-col cols="12" md="4" class="d-flex justify-center">
-              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
-            </v-col>
-            <!-- 右側文字內容 -->
-            <v-col cols="12" md="6" class="text-right align-self-end">
-              <h3 class="text5 text-lg font-bold">DENDRO 年輪時間日記</h3>
-              <p class="text4 mt-5">
-                在快速變遷的時代，我們的情感與記憶常被忽略<br />
-                「年輪說」誕⽣於⼀個願望<br />
-                為每個⼈提供⼀⽚匿名書寫的淨⼟<br />
-                讓真實情感化為永恆印記<br />
-                不可編輯與刪除的設計，賦予當下珍貴的重量<br />
-                分享⽇記，則連結個體與世界，透過探索他⼈的故事<br />
-                發現共鳴與治癒⼒量<br />
-                我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡<br />
-                溫暖並豐富每個⼈的內⼼世界<br />
-              </p>
-            </v-col>
+
           </v-row>
+            <!-- 右側文字內容 -->
+            <v-row class="flex-column mb-0">
+  <v-col cols="12" class="text-center">
+    <h3 class="text5 text-lg font-bold">Dendro</h3>
+    <p class="text4 mt-5">
+      從樹木的年輪中，⼈們看到的是時間的軌跡。 Dendro 希望為每個⼈創造⼀個屬於⾃⼰的年輪
+    </p>
+  </v-col>
+  <v-col cols="12" class="text-center">
+    <h3 class="text5 text-lg font-bold">Mission</h3>
+    <p class="text4 mt-5">
+      Dendro 是⼀座記憶的橋樑，⼀個⾃然與科技融合的情感容器，讓時間的故事得以延續，讓每段回憶更有意義
+    </p>
+  </v-col>
+  <v-col cols="12" class="text-center">
+    <h3 class="text5 text-lg font-bold">Vision</h3>
+    <p class="text4 mt-5">
+      Dendro 不僅是⼀個保存記憶的⼯具，更是⼀種情感體驗。 希望透過數位年輪，記錄成⻑，讓⼈們感受到時間的深度與⽣命的溫度
+    </p>
+  </v-col>
+</v-row>
         </div>
       </v-col>
     </v-row>
   </v-container>
-</swiper-slide>
+    </swiper-slide>
   </swiper>
       <div class="line-separator"></div>
 
@@ -216,7 +221,6 @@ import { Autoplay, Pagination, FreeMode } from 'swiper/modules' // 移除 Naviga
 
 // 註冊插件
 gsap.registerPlugin(ScrollTrigger);
-
 
 // 讓 .box 從左邊滑入
 gsap.from(".box", { x: -200, opacity: 0, duration: 1 });
@@ -285,7 +289,7 @@ getProducts()
 
 .grid1 {
   position: absolute;
-  top: 10%;  /* 調整這個數值來改變文字的位置 */
+  top: 200%;  /* 調整這個數值來改變文字的位置 */
   left: -5%;
   transform: translateX(-50%);
   display: flex;
@@ -315,7 +319,7 @@ getProducts()
 }
 
 .text2 {
-  font-size: 2rem; /* 文字大小 */
+  font-size: 3rem; /* 文字大小 */
   font-weight: bold;
   font-family: 'Merriweather';
   color: #140e02; /* 文字顏色，可根據需求調整 */
@@ -333,7 +337,7 @@ getProducts()
 }
 
 .text4 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: 'Noto Serif TC';
   font-weight: 500;
 }
@@ -358,6 +362,13 @@ getProducts()
   margin-top: 0.1px; /* 與上方文字間距 */
 }
 
+.small-text25 {
+  font-size: 1rem; /* 讓第三行字變小 */
+  font-weight: bold;
+  color: #140e02;
+  margin-top: 0.1px; /* 與上方文字間距 */
+}
+
 .small-text2::after {
   content: "";
   display: block;
@@ -365,6 +376,15 @@ getProducts()
   height: 1px; /* 控制短線的粗細 */
   background-color: #102b05; /* 可以改成你想要的顏色 */
   margin: 20px auto 0;
+}
+
+.small-text25::after {
+  content: "";
+  display: block;
+  width: 1px; /* 控制短線的長度 */
+  height: 50px; /* 控制短線的粗細 */
+  background-color: #102b05; /* 可以改成你想要的顏色 */
+  margin: 60px auto 0;
 }
 
 .small-text3 {
@@ -385,6 +405,11 @@ getProducts()
 
 #img {
   animation-duration: 3s; /* don't forget to set a duration! */
+}
+
+#img2 {
+  width: 480px;
+  height: 530px;
 }
 
 .img-style {
