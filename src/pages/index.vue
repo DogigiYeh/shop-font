@@ -19,7 +19,7 @@
           delay: 5000,
           disableOnInteraction: false,
         }"
-        :pagination="{ clickable: true }"
+        :pagination="false"
         :free-mode="true"
         :modules="modules"
         class="mySwiper"
@@ -39,42 +39,132 @@
 
     <div class="line-separator"></div> <!-- 上分隔線 -->
     <!-- about 區 -->
-    <v-row class="ma-0 pa-0">
-      <v-col cols="12" class="pa-0">
-        <div id="text" class="container ">
-          <div class="grid2">
-            <div class="text2">ABOUT</div>
-            <div class="text2 small-text2">Echoes of Growth</div>
-        <!-- 店家資訊 -->
-            <v-row class="mt-10 d-flex align-center">
-        <!-- 左側圖片 -->
-            <v-col cols="12" md="6">
-              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg">
-            </v-col>
+    <swiper
+    :style="{
+      '--swiper-pagination-color': '#fff',
+    }"
+    :speed="600"
+    :parallax="true"
+    :pagination="{
+      clickable: true,
+    }"
+    :modules="modules"
+    :autoplay="false"
+    class="mySwiper"
+  >
 
-                <!-- 右側內容 -->
-                <v-col cols="12" md="6" class="text-left">
-                  <h3 class="text-lg font-bold">DENDRO 年輪時間日記</h3>
-                  <p class="text-gray-600 mt-2">
-                      在快速變遷的時代，我們的情感與記憶常被忽略。<br>
-                      「年輪說」誕⽣於⼀個願望：<br>
-                      為每個⼈提供⼀⽚匿名書寫的淨⼟，<br>
-                      讓真實情感化為永恆印記。<br>
-                      不可編輯與刪除的設計，賦予當下珍貴的重量；<br>
-                      分享⽇記，則連結個體與世界，透過探索他⼈的故事，<br>
-                      發現共鳴與治癒⼒量。<br>
-                      我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡，
-                      溫暖並豐富每個⼈的內⼼世界。<br>
-                  </p>
-                  <div class="content">
-                <!-- 這裡可以放其他內容，空白區會自動保持 -->
-                  </div>
-                </v-col>
-            </v-row>
+    <!-- 🚀 Slide 1: "ABOUT" 區塊 -->
+    <swiper-slide>
+  <v-container class="pa-0">
+    <v-row class="ma-1 pa-0">
+      <v-col cols="12" class="pa-0">
+        <div id="text" class="container">
+          <div class="grid2 text-center">
+            <h2 class="text2">MOTIVATION</h2>
+            <p class="text2 small-text2">Echoes of Growth</p>
           </div>
+          <!-- 主要內容 -->
+          <v-row class="mt-10 d-flex align-center">
+            <!-- 左側圖片 -->
+            <v-col cols="12" md="4" class="d-flex justify-center">
+              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
+            </v-col>
+            <!-- 右側文字內容 -->
+            <v-col cols="12" md="6" class="text-right align-self-end">
+              <h3 class="text5 text-lg font-bold">DENDRO 年輪時間日記</h3>
+              <p class="text4 mt-5">
+                在快速變遷的時代，我們的情感與記憶常被忽略<br />
+                「年輪說」誕⽣於⼀個願望<br />
+                為每個⼈提供⼀⽚匿名書寫的淨⼟<br />
+                讓真實情感化為永恆印記<br />
+                不可編輯與刪除的設計，賦予當下珍貴的重量<br />
+                分享⽇記，則連結個體與世界，透過探索他⼈的故事<br />
+                發現共鳴與治癒⼒量<br />
+                我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡<br />
+                溫暖並豐富每個⼈的內⼼世界<br />
+              </p>
+            </v-col>
+          </v-row>
         </div>
       </v-col>
     </v-row>
+  </v-container>
+</swiper-slide>
+
+
+    <!-- 🚀 Slide 2 -->
+    <swiper-slide>
+      <v-container class="pa-0">
+    <v-row class="ma-1 pa-0">
+      <v-col cols="12" class="pa-0">
+        <div id="text" class="container">
+          <div class="grid2 text-center">
+            <h2 class="text2">STORY</h2>
+            <p class="text2 small-text2">Echoes of Growth</p>
+          </div>
+          <!-- 主要內容 -->
+          <v-row class="mt-10 d-flex align-center">
+            <!-- 左側圖片 -->
+            <v-col cols="12" md="4" class="d-flex justify-center">
+              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
+            </v-col>
+            <!-- 右側文字內容 -->
+            <v-col cols="12" md="6" class="text-right align-self-end">
+              <h3 class="text5 text-lg font-bold">品牌故事</h3>
+              <p class="text4 mt-5">
+                靈感來源於 "Dendrochronology"（樹木年輪學）這是⼀⾨透過分析年輪來研究歷史的科學<br />
+                年輪不僅是時間的印記，更象徵著⽣命的延續與成⻑<br />
+                <br />
+                希望⼈們能像樹木⼀樣，將⾃⼰的故事層層累積，成為⼈⽣的年輪。每⼀次記憶的封存<br />
+                都是⼀圈新的成⻑，象徵著⽣命的厚度與意義<br />
+              </p>
+            </v-col>
+          </v-row>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+    </swiper-slide>
+
+    <!-- 🚀 Slide 3 -->
+    <swiper-slide>
+  <v-container class="pa-0">
+    <v-row class="ma-1 pa-0">
+      <v-col cols="12" class="pa-0">
+        <div id="text" class="container">
+          <div class="grid2 text-center">
+            <h2 class="text2">MOTIVATION</h2>
+            <p class="text2 small-text2">Echoes of Growth</p>
+          </div>
+          <!-- 主要內容 -->
+          <v-row class="mt-10 d-flex align-center">
+            <!-- 左側圖片 -->
+            <v-col cols="12" md="4" class="d-flex justify-center">
+              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
+            </v-col>
+            <!-- 右側文字內容 -->
+            <v-col cols="12" md="6" class="text-right align-self-end">
+              <h3 class="text5 text-lg font-bold">DENDRO 年輪時間日記</h3>
+              <p class="text4 mt-5">
+                在快速變遷的時代，我們的情感與記憶常被忽略<br />
+                「年輪說」誕⽣於⼀個願望<br />
+                為每個⼈提供⼀⽚匿名書寫的淨⼟<br />
+                讓真實情感化為永恆印記<br />
+                不可編輯與刪除的設計，賦予當下珍貴的重量<br />
+                分享⽇記，則連結個體與世界，透過探索他⼈的故事<br />
+                發現共鳴與治癒⼒量<br />
+                我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡<br />
+                溫暖並豐富每個⼈的內⼼世界<br />
+              </p>
+            </v-col>
+          </v-row>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+</swiper-slide>
+  </swiper>
+      <div class="line-separator"></div>
 
     <!-- 搜索框 -->
     <!-- <div class="line-separator"></div> 上分隔線 -->
@@ -242,6 +332,18 @@ getProducts()
   border-radius: 10px;
 }
 
+.text4 {
+  font-size: 1.2rem;
+  font-family: 'Noto Serif TC';
+  font-weight: 500;
+}
+
+.text5 {
+  font-size: 2rem;
+  font-family: 'Noto Serif TC';
+  font-weight: 900;
+}
+
 .small-text1 {
   font-size: 1.7rem; /* 讓第三行字變小 */
   font-weight: bold;
@@ -285,4 +387,23 @@ getProducts()
   animation-duration: 3s; /* don't forget to set a duration! */
 }
 
+.img-style {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  padding: 20px;
+}
+
+@media (min-width: 960px) {
+  .text-left {
+    text-align: left;
+  }
+}
+
+#text {
+  position: relative; /* 或 absolute，如果你不希望它影響其他元素 */
+  top: -50px; /* 調整這個數值來控制上移的距離 */
+}
 </style>
