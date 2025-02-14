@@ -15,20 +15,21 @@
   >
     <template #container-start>
       <div
-        class="parallax-bg"
+        class="parallax-bg animate__animated animate__slideInDown"
         :style="{
-          'background-image': `url(${backgroundImage})`
+          'background-image': `url(${backgroundImage})`,
+          'transition': 'transform 2s ease-out'
         }"
         data-swiper-parallax="-23%"
       ></div>
     </template>
 
     <swiper-slide>
-      <div class="title1" data-swiper-parallax="-300">INTRODUCTION</div><br>
+      <div class="title1 animate__animated animate__slideInLeft" data-swiper-parallax="-300">INTRODUCTION</div><br>
     </swiper-slide>
 
     <swiper-slide>
-      <div class="title2" data-swiper-parallax="-300">⼀個專屬於⽂字的匿名⽇記網站</div>
+      <div class="title2" data-swiper-parallax="-200">⼀個專屬於⽂字的匿名⽇記網站</div>
     </swiper-slide>
 
     <swiper-slide>
@@ -84,7 +85,7 @@ const modules = [Parallax, Pagination, Navigation];
 .text {
   font-size: 2rem;
   font-family: 'Noto Serif TC';
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .mySwiper {
