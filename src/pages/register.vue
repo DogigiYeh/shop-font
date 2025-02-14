@@ -1,13 +1,13 @@
 <template>
-  <v-container>
+  <v-container class="login-container">
     <v-row>
       <v-col cols="12">
         <h1 class="text-center">{{ $t('nav.register') }}</h1>
       </v-col>
       <v-divider></v-divider>
       <v-col cols="12">
-        <v-form :disabled="isSubmitting" @submit.prevent="submit">
-          <v-text-field
+        <v-form :disabled="isSubmitting" @submit.prevent="submit" >
+          <v-text-field 
             v-model="account.value.value"
             :error-messages="account.errorMessage.value"
             :label="$t('user.account')"
@@ -127,6 +127,108 @@ const submit = handleSubmit(async (values) => {
   }
 })
 </script>
+
+<style scoped>
+/* 全局背景颜色 */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* 註冊容器 */
+.login-container {
+  position: relative;
+  width: 450px;
+  margin: 100px auto;
+  padding: 100px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../assets/12.jpg);
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* 添加漸變遮罩層 */
+.login-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(5, 124, 15, 0.6) 0%, rgba(225, 236, 227, 0.4) 100%);
+  z-index: 1;
+  animation: fadeIn 10s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 確保表單內容在遮罩層之上 */
+.form-login {
+  position: relative;
+  z-index: 2;
+}
+
+/* 輸入框樣式調整 */
+:deep(.custom-input .v-input__control) {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  color: white;
+  min-height: 50px;
+  padding: 10px;
+}
+
+:deep(.custom-input .v-label) {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+:deep(.custom-input .v-input__control:hover) {
+  border-color: white;
+}
+
+:deep(.custom-input .v-input__control:focus-within) {
+  border-color: #efeee7;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 錯誤訊息 */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* 註冊按鈕 */
+.login__submit {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #efeee7;
+  color: #102b05;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login__submit:hover {
+  background: #102b05;
+  color: #efeee7;
+}
+
+.login__submit:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+</style>
 
 <route lang="yaml">
 meta:

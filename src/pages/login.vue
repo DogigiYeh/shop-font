@@ -1,9 +1,9 @@
 <template>
-  <div class="login-container">
+  <div class="login-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
     <form class="form-login" @submit.prevent="submit">
       <ul class="login-nav">
         <li class="login-nav__item active">
-          <a href="#">{{ $t('nav.login') }}</a>
+          LOGIN:)
         </li>
       </ul>
       <label for="login-input-user" class="login__label">{{ $t('user.account') }}</label>
@@ -27,6 +27,8 @@ import { useAxios } from '@/composables/axios';
 import { useSnackbar } from 'vuetify-use-dialog';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
+
+import backgroundImage from '@/assets/12.jpg';
 
 const { t } = useI18n();
 const { api } = useAxios();
@@ -61,7 +63,6 @@ const submit = handleSubmit(async (values) => {
 <style scoped>
 /* 全局背景颜色 */
 body {
-  background-color: #efeee7;
   font-family: Arial, sans-serif;
 }
 
@@ -72,6 +73,8 @@ body {
   height: auto;
   margin: 100px auto;
   padding: 100px;
+  background-size: cover;
+  background-position: center;
   background-image: url(../assets/12.jpg);
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -89,12 +92,13 @@ body {
   border-radius: 10px; /* 确保遮罩层和 .login-container 形状一致 */
   background: linear-gradient(135deg, rgba(5, 124, 15, 0.6) 0%, rgba(225, 236, 227, 0.4) 100%);
   z-index: 1; /* 确保遮罩层在背景之上 */
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 10s ease-in-out infinite;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 /* 确保表单内容在遮罩层之上 */
@@ -103,7 +107,6 @@ body {
   z-index: 2;
 }
 
-
 /* 导航栏 */
 .login-nav {
   list-style: none;
@@ -111,6 +114,8 @@ body {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  color: #efeee7;
+  font-size: 2rem;
 }
 
 .login-nav__item a {
@@ -126,17 +131,24 @@ body {
 /* 输入框样式 */
 .login__label {
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 5px;
   display: block;
+  color: #efeee7;
 }
 
 .login__input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #efeee7;
   border-radius: 5px;
+  transition: background-color 0.3s ease-in-out; /* 讓透明度變化更順滑 */
+}
+
+.login__input:focus {
+  background-color: rgba(255, 255, 255, 0.425); /* 當點選時，透明度變為 70% */
+  outline: none; /* 移除預設的藍色邊框 */
+  border: 1px solid #102b05; /* 可以改變邊框顏色，讓輸入框更顯眼 */
 }
 
 /* 错误消息 */
@@ -149,6 +161,7 @@ body {
 /* 登录按钮 */
 .login__submit {
   width: 100%;
+  margin-top: 20px;
   padding: 10px;
   background: #efeee7;
   color: #102b05;
@@ -156,6 +169,11 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.login__submit:hover {
+  background: #102b05;
+  color: #efeee7;
 }
 
 .login__submit:disabled {
