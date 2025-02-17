@@ -2,13 +2,14 @@
   <v-container class="login-container">
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center">{{ $t('nav.register') }}</h1>
+        <h1 class="text-center">REGISTER:)</h1>
       </v-col>
       <v-divider></v-divider>
       <v-col cols="12">
-        <v-form :disabled="isSubmitting" @submit.prevent="submit" >
-          <v-text-field 
+        <v-form class="form-login" :disabled="isSubmitting" @submit.prevent="submit" >
+          <v-text-field
             v-model="account.value.value"
+            class="custom-input"
             :error-messages="account.errorMessage.value"
             :label="$t('user.account')"
             minlength="4"
@@ -17,11 +18,13 @@
           />
           <v-text-field
             v-model="email.value.value"
+            class="custom-input"
             :error-messages="email.errorMessage.value"
             :label="$t('user.email')"
           />
           <v-text-field
             v-model="password.value.value"
+            class="custom-input"
             type="password"
             :error-messages="password.errorMessage.value"
             :label="$t('user.password')"
@@ -31,6 +34,7 @@
           />
           <v-text-field
             v-model="passwordConfirm.value.value"
+            class="custom-input"
             type="password"
             :error-messages="passwordConfirm.errorMessage.value"
             :label="$t('user.passwordConfirm')"
@@ -39,7 +43,7 @@
             counter
           />
           <div class="text-center">
-            <v-btn :loading="isSubmitting" type="submit" color="primary">{{ $t('register.submit') }}</v-btn>
+            <v-btn class="login__submit" :loading="isSubmitting" type="submit">{{ $t('register.submit') }}</v-btn>
           </div>
         </v-form>
       </v-col>
@@ -146,6 +150,7 @@ body {
   border-radius: 12px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  z-index: 2;
 }
 
 /* 添加漸變遮罩層 */
@@ -160,6 +165,7 @@ body {
   background: linear-gradient(135deg, rgba(5, 124, 15, 0.6) 0%, rgba(225, 236, 227, 0.4) 100%);
   z-index: 1;
   animation: fadeIn 10s ease-in-out infinite;
+  pointer-events: none; /* 讓鼠標事件穿透 */
 }
 
 @keyframes fadeIn {
@@ -171,7 +177,7 @@ body {
 /* 確保表單內容在遮罩層之上 */
 .form-login {
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 /* 輸入框樣式調整 */
@@ -182,7 +188,7 @@ body {
   backdrop-filter: blur(5px);
   color: white;
   min-height: 50px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 :deep(.custom-input .v-label) {
@@ -209,14 +215,35 @@ body {
 .login__submit {
   width: 100%;
   margin-top: 20px;
-  padding: 12px;
+  padding: 5px;
   background: #efeee7;
   color: #102b05;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+}
+
+.login__submit:hover {
+  background: #102b05;
+  color: #efeee7;
+}
+
+.login__submit:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.text-center {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  color: #efeee7;
+  font-size: 2rem;
+  z-index: 20;
 }
 
 .login__submit:hover {

@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
+  <div class="login-container" >
     <form class="form-login" @submit.prevent="submit">
       <ul class="login-nav">
         <li class="login-nav__item active">
@@ -28,7 +28,6 @@ import { useSnackbar } from 'vuetify-use-dialog';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 
-import backgroundImage from '@/assets/12.jpg';
 
 const { t } = useI18n();
 const { api } = useAxios();
@@ -148,7 +147,7 @@ body {
 .login__input:focus {
   background-color: rgba(255, 255, 255, 0.425); /* 當點選時，透明度變為 70% */
   outline: none; /* 移除預設的藍色邊框 */
-  border: 1px solid #102b05; /* 可以改變邊框顏色，讓輸入框更顯眼 */
+  border: 1px solid #efeee7; /* 可以改變邊框顏色，讓輸入框更顯眼 */
 }
 
 /* 错误消息 */
