@@ -56,23 +56,23 @@
 
     <!-- 🚀 Slide 1: "ABOUT" 區塊 -->
     <swiper-slide>
-  <v-container class="pa-0">
-    <v-row class="ma-1 pa-0">
-      <v-col cols="12" class="pa-0">
-        <div id="text" class="container">
-          <div class="grid2 text-center">
-            <h2 class="text2">MOTIVATION</h2>
-            <p class="text2 small-text2">Echoes of Growth</p>
-          </div>
+      <v-container class="pa-0">
+        <v-row class="ma-1 pa-0">
+          <v-col cols="12" class="pa-0">
+            <div id="text" class="container">
+              <div class="grid2 text-center">
+                <h2 class="text2">MOTIVATION</h2>
+                  <p class="text2 small-text2">Echoes of Growth</p>
+              </div>
           <!-- 主要內容 -->
-          <v-row class="mt-10 d-flex align-center">
+        <v-row class="mt-10 d-flex align-center">
             <!-- 左側圖片 -->
-            <v-col cols="12" md="4" class="d-flex justify-center">
-              <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
-            </v-col>
+          <v-col cols="12" md="4" class="d-flex justify-center">
+            <img src="../assets/11.jpg" aspect-ratio="16/9" class="rounded-lg img-style" />
+          </v-col>
             <!-- 右側文字內容 -->
-            <v-col cols="12" md="6" class="text-right align-self-end">
-              <h3 class="text5 text-lg font-bold">DENDRO 年輪時間日記</h3>
+          <v-col cols="12" md="6" class="text-right align-self-end">
+            <h3 class="text5 text-lg font-bold">DENDRO 年輪時間日記</h3>
               <p class="text4 mt-5">
                 在快速變遷的時代，我們的情感與記憶常被忽略<br />
                 「年輪說」誕⽣於⼀個願望<br />
@@ -84,25 +84,25 @@
                 我們希望，每⼀篇⽇記都如年輪般記錄時間的痕跡<br />
                 溫暖並豐富每個⼈的內⼼世界<br />
               </p>
-            </v-col>
-          </v-row>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
-</swiper-slide>
+          </v-col>
+        </v-row>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </swiper-slide>
 
 
     <!-- 🚀 Slide 2 -->
     <swiper-slide>
       <v-container class="pa-0">
-    <v-row class="ma-1 pa-0">
-      <v-col cols="12" class="pa-0">
-        <div id="text" class="container">
-          <div class="grid2 text-center">
-            <h2 class="text2">STORY</h2>
-            <p class="text2 small-text2">Echoes of Growth</p>
-          </div>
+        <v-row class="ma-1 pa-0">
+          <v-col cols="12" class="pa-0">
+            <div id="text" class="container">
+              <div class="grid2 text-center">
+                <h2 class="text2">STORY</h2>
+                  <p class="text2 small-text2">Echoes of Growth</p>
+              </div>
           <!-- 主要內容 -->
           <v-row class="mt-10 d-flex align-center">
             <!-- 左側圖片 -->
@@ -122,9 +122,9 @@
               </p>
             </v-col>
           </v-row>
-        </div>
-      </v-col>
-    </v-row>
+            </div>
+        </v-col>
+      </v-row>
   </v-container>
     </swiper-slide>
 
@@ -165,7 +165,6 @@
   </v-container>
     </swiper-slide>
   </swiper>
-      <div class="line-separator"></div>
 
     <!-- 搜索框 -->
     <!-- <div class="line-separator"></div> 上分隔線 -->
@@ -195,14 +194,84 @@
     <!-- 分頁 -->
     <v-row>
       <v-col cols="12">
-        <v-pagination v-model="currentPage" :length="totalPage"></v-pagination>
+        <v-pagination v-model="currentPage" class="pagination" :length="totalPage"></v-pagination>
       </v-col>
     </v-row>
-    <!-- <div class="line-separator"></div> 下分隔線 -->
+    <div class="line-separator"></div>
   </v-container>
 
   <!-- reply 回報頁 -->
+<v-container >
+  <v-row >
+    <v-col cols="12">
+      <v-sheet class="position-relative" min-height="850">
+        <!-- 圖片作為背景 -->
+        <v-parallax
+          :src="imageSrc"
+          class="position-absolute"
+          width="100%"
+          height="100%"
+          cover
+        ></v-parallax>
+    <!-- 置中按鈕 -->
+    <div class="position-absolute d-flex align-center justify-center w-100 h-100">
+      <v-btn color="#efeee7" size="x-large" @click="dialog = !dialog">
+        REPLY:)
+      </v-btn>
+    </div>
 
+    <v-fade-transition hide-on-leave>
+      <v-card
+        v-if="dialog"
+        append-icon="$close"
+        class="mx-auto"
+        elevation="16"
+        max-width="500"
+        title="Send a reply:)"
+      >
+        <template #append>
+          <v-btn icon="$close" variant="text" @click="dialog = false"></v-btn>
+        </template>
+
+        <v-divider></v-divider>
+
+        <div class="py-8 text-center">
+          <v-icon class="mb-6" color="#102b05" icon="mdi-application-edit" size="80"></v-icon>
+          <div class="">請將你的問題寫下，我們收到後會盡快處理。</div>
+        </div>
+
+        <v-container>
+          <v-textarea
+            v-model="message"
+            label="your problem"
+            rows="3"
+            outlined
+          ></v-textarea>
+        </v-container>
+
+        <v-divider></v-divider>
+
+        <div class="pa-4 text-end">
+          <v-btn
+            class="text-none"
+            color="medium-emphasis"
+            min-width="92"
+            variant="outlined"
+            rounded
+            @click="dialog = false"
+          >
+            SENT:_)
+          </v-btn>
+        </div>
+      </v-card>
+    </v-fade-transition>
+  </v-sheet>
+    </v-col>
+  </v-row>
+</v-container>
+
+<!-- footer -->
+<v-footer class="footer">©2025-泰山職訓局 青年專班 專題作品 by 葉香蘭 heri</v-footer>
 </template>
 
 <script setup>
@@ -215,8 +284,11 @@ import 'swiper/css/pagination'
 import 'swiper/css/free-mode'  // 加入 FreeMode 模組的樣式
 import 'animate.css'
 import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Autoplay, Pagination, FreeMode } from 'swiper/modules' // 移除 Navigation，加入 FreeMode
+
+// 引入圖片
+import imageSrc from '@/assets/bg1.jpg'
 
 // 註冊插件
 gsap.registerPlugin(ScrollTrigger);
@@ -249,6 +321,9 @@ const getProducts = async () => {
   }
 }
 getProducts()
+
+const dialog = ref(false);
+const message = ref('');
 </script>
 
 <style>
@@ -333,6 +408,7 @@ getProducts()
   color: #140e02; /* 文字顏色，可根據需求調整 */
   padding: 10px 20px;
   border-radius: 10px;
+  margin-top: 100px;
 }
 
 .text4 {
@@ -429,5 +505,16 @@ getProducts()
 #text {
   position: relative; /* 或 absolute，如果你不希望它影響其他元素 */
   top: -50px; /* 調整這個數值來控制上移的距離 */
+}
+
+.pagination {
+  margin-bottom: 5rem;
+}
+
+.footer {
+  font-size: 13px;
+  /* font-weight: bold; */
+  color: #102b05;
+  background-color: #efeee7;
 }
 </style>

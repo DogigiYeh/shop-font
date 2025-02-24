@@ -46,16 +46,16 @@ export default {
     checkout: '結帳',
   },
   reply: {
-    "userId": "用戶 ID",
-    "name": "名稱",
-    "description": "描述",
-    "status": "狀態",
-    "statusPending": "待處理",
-    "statusConfirmed": "已確認",
-    "statusClosed": "已關閉",
-    "reportedAt": "回報時間",
-    "fixedAt": "修復時間",
-    "replyReportRequired": "此欄位為必填"
+    userId: "用戶 ID",
+    name: "名稱",
+    description: "描述",
+    status: "狀態",
+    statusPending: "待處理",
+    statusConfirmed: "已確認",
+    statusClosed: "已關閉",
+    reportedAt: "回報時間",
+    fixedAt: "修復時間",
+    replyReportRequired: "此欄位為必填"
   },
   order: {
     createdAt: '訂單時間',
@@ -76,11 +76,11 @@ export default {
   },
   adminReply: {
     new: '回報問題',
-    "edit": "編輯回覆",
-    "cancel": "取消",
-    "submit": "提交",
-    "editSuccess": "編輯成功",
-    "newSuccess": "新增成功"
+    edit: "編輯回覆",
+    cancel: "取消",
+    submit: "提交",
+    editSuccess: "編輯成功",
+    newSuccess: "新增成功",
   },
   blockade: {
   },
