@@ -131,41 +131,37 @@
     <!-- 🚀 Slide 3 -->
     <swiper-slide>
       <v-container class="pa-0">
-    <v-row class="ma-1 pa-0">
-      <v-col cols="12" class="pa-0">
-        <div id="text" class="container">
-          <div class="grid2 text-center">
-            <h2 class="text2">STORY</h2>
-            <p class="text2 small-text25">Echoes of Growth</p>
-          </div>
-          <!-- 主要內容 -->
-          <v-row class="mt-10 d-flex align-center">
-
-          </v-row>
+        <v-row class="ma-1 pa-0">
+          <v-col cols="12" class="pa-0">
+            <div id="text" class="container">
+              <div class="grid2 text-center">
+                <h2 class="text2">STORY</h2>
+                <p class="text2 small-text25">Echoes of Growth</p>
+              </div>
             <!-- 右側文字內容 -->
             <v-row class="flex-column mb-0">
-  <v-col cols="12" class="text-center">
-    <h3 class="text5 text-lg font-bold">Dendro</h3>
-    <p class="text4 mt-5">
-      從樹木的年輪中，⼈們看到的是時間的軌跡。 Dendro 希望為每個⼈創造⼀個屬於⾃⼰的年輪
-    </p>
-  </v-col>
-  <v-col cols="12" class="text-center">
-    <h3 class="text5 text-lg font-bold">Mission</h3>
-    <p class="text4 mt-5">
-      Dendro 是⼀座記憶的橋樑，⼀個⾃然與科技融合的情感容器，讓時間的故事得以延續，讓每段回憶更有意義
-    </p>
-  </v-col>
-  <v-col cols="12" class="text-center">
-    <h3 class="text5 text-lg font-bold">Vision</h3>
-    <p class="text4 mt-5">
-      Dendro 不僅是⼀個保存記憶的⼯具，更是⼀種情感體驗。 希望透過數位年輪，記錄成⻑，讓⼈們感受到時間的深度與⽣命的溫度
-    </p>
-  </v-col>
-</v-row>
-        </div>
-      </v-col>
-    </v-row>
+          <v-col cols="12" class="text-center">
+            <h3 class="text5 text-lg font-bold">Dendro</h3>
+            <p class="text4 mt-5">
+              從樹木的年輪中，⼈們看到的是時間的軌跡。 Dendro 希望為每個⼈創造⼀個屬於⾃⼰的年輪
+            </p>
+          </v-col>
+          <v-col cols="12" class="text-center">
+            <h3 class="text5 text-lg font-bold">Mission</h3>
+            <p class="text4 mt-5">
+              Dendro 是⼀座記憶的橋樑，⼀個⾃然與科技融合的情感容器，讓時間的故事得以延續，讓每段回憶更有意義
+            </p>
+          </v-col>
+          <v-col cols="12" class="text-center">
+            <h3 class="text5 text-lg font-bold">Vision</h3>
+            <p class="text4 mt-5">
+              Dendro 不僅是⼀個保存記憶的⼯具，更是⼀種情感體驗。 希望透過數位年輪，記錄成⻑，讓⼈們感受到時間的深度與⽣命的溫度
+            </p>
+          </v-col>
+          </v-row>
+            </div>
+          </v-col>
+        </v-row>
   </v-container>
     </swiper-slide>
   </swiper>
@@ -204,6 +200,9 @@
     </v-row>
     <!-- <div class="line-separator"></div> 下分隔線 -->
   </v-container>
+
+  <!-- reply 回報頁 -->
+
 </template>
 
 <script setup>

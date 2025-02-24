@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center">{{ $t('nav.adminProducts') }}</h1>
+        <h1 class="text-center">{{ $t('nav.adminBlockade') }}</h1>
       </v-col>
       <v-divider></v-divider>
       <v-col cols="12">

@@ -14,6 +14,8 @@ export default {
     adminOrders: '用戶管理',
     adminAbout: '關於頁面',
     adminExplore: '探索頁面',
+    adminBlockade: '用戶封鎖',
+    adminReply: '管理回覆',
     userManagement: '用戶管理',
     reportManagement: '回報管理',
     userBlockade: '用戶封鎖',
@@ -43,6 +45,18 @@ export default {
   cart: {
     checkout: '結帳',
   },
+  reply: {
+    "userId": "用戶 ID",
+    "name": "名稱",
+    "description": "描述",
+    "status": "狀態",
+    "statusPending": "待處理",
+    "statusConfirmed": "已確認",
+    "statusClosed": "已關閉",
+    "reportedAt": "回報時間",
+    "fixedAt": "修復時間",
+    "replyReportRequired": "此欄位為必填"
+  },
   order: {
     createdAt: '訂單時間',
     cart: '商品',
@@ -59,6 +73,16 @@ export default {
     submit: '確認',
     newSuccess: '新增成功',
     editSuccess: '編輯成功',
+  },
+  adminReply: {
+    new: '回報問題',
+    "edit": "編輯回覆",
+    "cancel": "取消",
+    "submit": "提交",
+    "editSuccess": "編輯成功",
+    "newSuccess": "新增成功"
+  },
+  blockade: {
   },
   product: {
     image: '圖片',
@@ -124,6 +148,10 @@ export default {
     orderUserRequired: '訂單使用者必填',
     orderCartRequired: '訂單購物車必填',
     orderCartEmpty: '訂單購物車為空',
+    // replyUserIdRequired: '使用者ID確認',
+    // replyUserNameRequired: '使用者名字確認',
+    // replyUserAvatarRequired: '使用者頭項確認',
+    replyReportRequired: '回報必填',
     serverError: '伺服器錯誤',
     unknownError: '未知錯誤',
     uploadFailed: '上傳失敗',
