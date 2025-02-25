@@ -1,7 +1,7 @@
 <template>
   <v-app-bar id="navbar" style="background-color: var(--v-theme-myWhiteColor1); color: var(--v-theme-);">
     <v-container class="d-flex align-center">
-      <v-btn to="/" :active="false">Dendro</v-btn>
+      <v-btn to="/" :active="false"><img src="../assets/loge1.svg" alt=""></v-btn>
       <v-spacer />
       <template v-for="nav of navs" :key="nav.to">
         <v-btn v-if="nav.show" :to="nav.to" :prepend-icon="nav.icon">

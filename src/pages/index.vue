@@ -216,7 +216,7 @@
     <!-- 置中按鈕 -->
     <div class="position-absolute d-flex align-center justify-center w-100 h-100">
       <v-btn color="#efeee7" size="x-large" @click="dialog = !dialog">
-        REPLY:)
+        REPLY:_)
       </v-btn>
     </div>
 
