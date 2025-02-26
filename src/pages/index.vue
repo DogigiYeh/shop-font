@@ -186,7 +186,7 @@
 
     <!-- 產品列表 -->
     <v-row>
-      <v-col v-for="product in filteredProducts" :key="product._id" cols="12" md="6" lg="3">
+      <v-col v-for="product in filteredProducts" :key="product._id" cols="12" md="6" lg="4">
         <product-card v-bind="product"></product-card>
       </v-col>
     </v-row>

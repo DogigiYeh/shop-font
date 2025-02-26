@@ -9,11 +9,11 @@
         <v-img :src="product.image"></v-img>
       </v-col>
       <v-col cols="12" md="6">
-        <p>{{ $t( 'productCategory.'+ product.category) }}</p>
-        <p>{{ product.price }}</p>
+        <!-- <p>{{ $t( 'productCategory.'+ product.category) }}</p> -->
+        <!-- <p>{{ product.price }}</p> -->
         <p>{{ product.description }}</p>
         <v-form :disabled="isSubmitting" @submit.prevent="submit">
-          <v-text-field v-model.number="quantity.value.value" type="number" :error-messages="quantity.errorMessage.value"></v-text-field>
+          <!-- <v-text-field v-model.number="quantity.value.value" type="number" :error-messages="quantity.errorMessage.value"></v-text-field> -->
           <v-btn type="submit" prepend-icon="mdi-cart" :loading="isSubmitting">{{ $t('product.addCart') }}</v-btn>
         </v-form>
       </v-col>
@@ -28,7 +28,8 @@
 import { ref } from 'vue'
 import { useAxios } from '@/composables/axios'
 import { useRoute, useRouter } from 'vue-router'
-import { useForm, useField } from 'vee-validate'
+import { useForm } from 'vee-validate'
+// import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
 import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
@@ -44,11 +45,11 @@ const createSnackbar = useSnackbar()
 const product = ref({
   _id: '',
   name: '',
-  price: 0,
+  // price: 0,
   description: '',
   image: '',
   sell: true,
-  category: ''
+  // category: ''
 })
 
 const getProduct = async () => {
@@ -77,7 +78,7 @@ const { handleSubmit, isSubmitting } = useForm({
     quantity: 1
   }
 })
-const quantity = useField('quantity')
+// const quantity = useField('quantity')
 
 const submit = handleSubmit(async (values) => {
   if (!user.isLoggedIn) {

@@ -46,20 +46,20 @@
             :label="$t('product.name')"
             :error-messages="name.errorMessage.value"
           ></v-text-field>
-          <v-text-field
+          <!-- <v-text-field
             v-model="price.value.value"
             :label="$t('product.price')"
             :error-messages="price.errorMessage.value"
             type="number" min="0"
-          ></v-text-field>
-          <v-select
+          ></v-text-field> -->
+          <!-- <v-select
             v-model="category.value.value"
             :error-messages="category.errorMessage.value"
             :items="categoryOptions"
             :label="$t('product.category')"
             item-title="text"
             item-value="value"
-          ></v-select>
+          ></v-select> -->
           <v-checkbox
             v-model="sell.value.value"
             :label="$t('product.onSell')"
@@ -109,8 +109,8 @@ const headers = computed(() => {
     { title: t('product.image'), key: 'image', sortable: false },
     { title: t('product.name'), key: 'name', sortable: true },
     { title: t('product.description'), key: 'description', sortable: true },
-    { title: t('product.price'), key: 'price', sortable: true },
-    { title: t('product.category'), key: 'category', sortable: true },
+    // { title: t('product.describe'), key: 'describe', sortable: true },
+    // { title: t('product.category'), key: 'category', sortable: true },
     { title: t('product.sell'), key: 'sell', sortable: true },
     { title: t('product.createdAt'), key: 'createdAt', sortable: true },
     { title: t('product.updatedAt'), key: 'updatedAt', sortable: true },
@@ -142,9 +142,9 @@ const openDialog = (item) => {
   if (item) {
     dialog.value.id = item._id
     name.value.value = item.name
-    price.value.value = item.price
+    // describe.value.value = item.describe
     description.value.value = item.description
-    category.value.value = item.category
+    // category.value.value = item.category
     sell.value.value = item.sell
   }
   dialog.value.open = true
@@ -160,18 +160,18 @@ const schema = yup.object({
   name: yup
     .string()
     .required(t('api.productNameRequired')),
-  price: yup
-    .number()
-    .typeError(t('api.productPriceRequired'))
-    .required(t('api.productPriceRequired'))
-    .min(0, t('api.productPriceTooSmall')),
+  // price: yup
+  //   .number()
+  //   .typeError(t('api.productPriceRequired'))
+  //   .required(t('api.productPriceRequired'))
+  //   .min(0, t('api.productPriceTooSmall')),
   description: yup
     .string()
     .required(t('api.productDescriptionRequired')),
-  category: yup
-    .string()
-    .required(t('api.productCategoryRequired'))
-    .oneOf(['food', 'drink', 'music', 'phone'], t('api.productCategoryInvalid')),
+  // category: yup
+  //   .string()
+  //   .required(t('api.productCategoryRequired'))
+  //   .oneOf(['food', 'drink', 'music', 'phone'], t('api.productCategoryInvalid')),
   sell: yup
     .boolean()
     .required(t('api.productSellRequired')),
@@ -180,23 +180,23 @@ const { handleSubmit, isSubmitting, resetForm } = useForm({
   validationSchema: schema,
   initialValues: {
     name: '',
-    price: 0,
+    // price: 0,
     description: '',
     category: '',
     sell: false,
   }
 })
 const name = useField('name')
-const price = useField('price')
+// const describe = useField('describe')
 const description = useField('description')
-const category = useField('category')
+// const category = useField('category')
 const sell = useField('sell')
-const categoryOptions = computed(() => [
-  { text: t('productCategory.food'), value: 'food' },
-  { text: t('productCategory.drink'), value: 'drink' },
-  { text: t('productCategory.music'), value: 'music' },
-  { text: t('productCategory.phone'), value: 'phone' },
-])
+// const categoryOptions = computed(() => [
+//   { text: t('productCategory.food'), value: 'food' },
+//   { text: t('productCategory.drink'), value: 'drink' },
+//   { text: t('productCategory.music'), value: 'music' },
+//   { text: t('productCategory.phone'), value: 'phone' },
+// ])
 
 const fileAgent = ref(null)
 const fileRecords = ref([])
@@ -218,9 +218,9 @@ const submit = handleSubmit(async (values) => {
     const fd = new FormData()
     // fd.append(key, value)
     fd.append('name', values.name)
-    fd.append('price', values.price)
+    // fd.append('describe', values.describe)
     fd.append('description', values.description)
-    fd.append('category', values.category)
+    // fd.append('category', values.category)
     fd.append('sell', values.sell)
     if (fileRecords.value.length > 0) {
       fd.append('image', fileRecords.value[0].file)

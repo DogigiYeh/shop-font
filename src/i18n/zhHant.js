@@ -87,8 +87,8 @@ export default {
   product: {
     image: '圖片',
     name: '名稱',
-    description: '說明',
-    price: '價格',
+    description: '大綱',
+    describe: '大綱',
     category: '分類',
     sell: '上下架',
     createdAt: '新增時間',
