@@ -77,6 +77,7 @@
                       <v-textarea label="DENDRO:_)"></v-textarea>
                     </v-col>
                   </v-row>
+                  <small class="text-caption text-medium-emphasis">*表示必填字段</small>
                 </v-card-text>
 
                 <v-divider></v-divider>
