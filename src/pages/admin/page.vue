@@ -6,10 +6,10 @@
       </v-col>
       <v-divider></v-divider>
       <v-col cols="12">
-        <v-data-table :items="products" :headers="headers" :search="search">
+        <v-data-table :items="explores" :headers="headers" :search="search">
           <template #top>
             <v-toolbar>
-              <v-btn @click="openDialog(null)">{{ $t('adminProduct.new') }}</v-btn>
+              <v-btn @click="openDialog(null)">{{ $t('adminExplore.new') }}</v-btn>
               <v-spacer></v-spacer>
               <v-text-field v-model="search" prepend-inner-icon="mdi-magnify" variant="underlined"></v-text-field>
             </v-toolbar>
@@ -26,9 +26,9 @@
           <template #[`item.updatedAt`]="{ value }">
             {{ new Date(value).toLocaleString() }}
           </template>
-          <template #[`item.category`]="{ value }">
+          <!-- <template #[`item.category`]="{ value }">
             {{ $t('productCategory.' + value) }}
-          </template>
+          </template> -->
           <template #[`item.edit`]="{ item }">
             <v-btn icon="mdi-pencil" variant="text" @click="openDialog(item)"></v-btn>
           </template>
@@ -39,11 +39,11 @@
   <v-dialog v-model="dialog.open" persistent>
     <v-form :disabled="isSubmitting" @submit.prevent="submit">
       <v-card>
-        <v-card-title>{{ $t(dialog.id ? 'adminProduct.edit' : 'adminProduct.new') }}</v-card-title>
+        <v-card-title>{{ $t(dialog.id ? 'adminExplore.edit' : 'adminExplore.new') }}</v-card-title>
         <v-card-text>
           <v-text-field
             v-model="name.value.value"
-            :label="$t('product.name')"
+            :label="$t('explore.name')"
             :error-messages="name.errorMessage.value"
           ></v-text-field>
           <!-- <v-text-field
@@ -62,12 +62,12 @@
           ></v-select> -->
           <v-checkbox
             v-model="sell.value.value"
-            :label="$t('product.onSell')"
+            :label="$t('explore.onSell')"
             :error-messages="sell.errorMessage.value"
           ></v-checkbox>
           <v-textarea
             v-model="description.value.value"
-            :label="$t('product.description')"
+            :label="$t('explore.description')"
             :error-messages="description.errorMessage.value"
           ></v-textarea>
           <VueFileAgent
@@ -81,8 +81,8 @@
           ></VueFileAgent>
         </v-card-text>
         <v-card-actions>
-          <v-btn @click="closeDialog">{{ $t('adminProduct.cancel') }}</v-btn>
-          <v-btn type="submit" :loading="isSubmitting">{{ $t('adminProduct.submit') }}</v-btn>
+          <v-btn @click="closeDialog">{{ $t('adminExplore.cancel') }}</v-btn>
+          <v-btn type="submit" :loading="isSubmitting">{{ $t('adminExplore.submit') }}</v-btn>
         </v-card-actions>
       </v-card>
     </v-form>
@@ -101,27 +101,27 @@ const { t } = useI18n()
 const { apiAuth } = useAxios()
 const createSnackbar = useSnackbar()
 
-const products = reactive([])
+const explores = reactive([])
 const search = ref('')
 const headers = computed(() => {
   return [
     { title: 'ID', key: '_id', sortable: true },
-    { title: t('product.image'), key: 'image', sortable: false },
-    { title: t('product.name'), key: 'name', sortable: true },
-    { title: t('product.description'), key: 'description', sortable: true },
+    { title: t('explore.image'), key: 'image', sortable: false },
+    { title: t('explore.name'), key: 'name', sortable: true },
+    { title: t('explore.description'), key: 'description', sortable: true },
     // { title: t('product.describe'), key: 'describe', sortable: true },
     // { title: t('product.category'), key: 'category', sortable: true },
-    { title: t('product.sell'), key: 'sell', sortable: true },
-    { title: t('product.createdAt'), key: 'createdAt', sortable: true },
-    { title: t('product.updatedAt'), key: 'updatedAt', sortable: true },
-    { title: t('adminProduct.edit'), key: 'edit', sortable: false },
+    { title: t('explore.sell'), key: 'sell', sortable: true },
+    { title: t('explore.createdAt'), key: 'createdAt', sortable: true },
+    { title: t('explore.updatedAt'), key: 'updatedAt', sortable: true },
+    { title: t('adminExplore.edit'), key: 'edit', sortable: false },
   ]
 })
 
-const getProducts = async () => {
+const getExplores = async () => {
   try {
-    const { data } = await apiAuth.get('/product/all')
-    products.push(...data.result)
+    const { data } = await apiAuth.get('/explore/all')
+    explores.push(...data.result)
   } catch (error) {
     console.log(error)
     createSnackbar({
@@ -132,7 +132,7 @@ const getProducts = async () => {
     })
   }
 }
-getProducts()
+getExplores()
 
 const dialog = ref({
   open: false,
@@ -159,7 +159,7 @@ const closeDialog = () => {
 const schema = yup.object({
   name: yup
     .string()
-    .required(t('api.productNameRequired')),
+    .required(t('api.exploreNameRequired')),
   // price: yup
   //   .number()
   //   .typeError(t('api.productPriceRequired'))
@@ -167,14 +167,14 @@ const schema = yup.object({
   //   .min(0, t('api.productPriceTooSmall')),
   description: yup
     .string()
-    .required(t('api.productDescriptionRequired')),
+    .required(t('api.exploreDescriptionRequired')),
   // category: yup
   //   .string()
   //   .required(t('api.productCategoryRequired'))
   //   .oneOf(['food', 'drink', 'music', 'phone'], t('api.productCategoryInvalid')),
   sell: yup
     .boolean()
-    .required(t('api.productSellRequired')),
+    .required(t('api.exploreSellRequired')),
 })
 const { handleSubmit, isSubmitting, resetForm } = useForm({
   validationSchema: schema,
@@ -206,7 +206,7 @@ const submit = handleSubmit(async (values) => {
   if (fileRecords.value[0]?.error)      return
   if (dialog.value.id.length === 0 && fileRecords.value.length === 0) {
     createSnackbar({
-      text: t('api.productImageRequired'),
+      text: t('api.exploreImageRequired'),
       snackbarProps: {
         color: 'red'
       }
@@ -227,15 +227,15 @@ const submit = handleSubmit(async (values) => {
     }
 
     if (dialog.value.id.length > 0) {
-      await apiAuth.patch('/product/' + dialog.value.id, fd)
+      await apiAuth.patch('/explore/' + dialog.value.id, fd)
     } else {
-      await apiAuth.post('/product', fd)
+      await apiAuth.post('/explore', fd)
     }
 
-    products.splice(0, products.length)
-    getProducts()
+    explores.splice(0, explores.length)
+    getExplores()
     createSnackbar({
-      text: t(dialog.value.id.length > 0 ? 'adminProduct.editSuccess' : 'adminProduct.newSuccess'),
+      text: t(dialog.value.id.length > 0 ? 'adminExplore.editSuccess' : 'adminExplore.newSuccess'),
       snackbarProps: {
         color: 'green'
       }
@@ -258,5 +258,5 @@ meta:
   layout: admin
   login: true
   admin: true
-  title: 'nav.adminOrders'
+  title: 'nav.adminAbout'
 </route>

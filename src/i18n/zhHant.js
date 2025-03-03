@@ -6,6 +6,7 @@ export default {
     register: '註冊',
     login: '登入',
     cart: '日記',
+    journal: '日記',
     orders: '關於',
     admin: '管理',
     explore: '探索',
@@ -65,6 +66,9 @@ export default {
   },
   admin: {
     index: '選擇管理項目'
+  },
+  adainExplore: {
+
   },
   adminProduct: {
     new: '新增商品',

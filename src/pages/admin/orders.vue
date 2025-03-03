@@ -69,5 +69,5 @@ getOrders()
 meta:
   layout: admin
   login: true
-  title: 'nav.adminOrders'
+  title: 'nav.adminProducts'
 </route>

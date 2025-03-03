@@ -13,7 +13,7 @@
       <v-menu>
         <template #activator="{ props }">
           <v-btn v-bind="props">
-            <v-icon icon="mdi-translate"></v-icon>
+            <!-- <v-icon icon="mdi-translate"></v-icon> -->
           </v-btn>
         </template>
         <v-list>
@@ -86,8 +86,8 @@ const navs = computed(() => {
     { to: '/login', text: t('nav.login'), icon: 'mdi-account-arrow-left', show: !user.isLoggedIn },
     { to: '/', text: t('nav.home'), icon: 'mdi-home', show: user.isLoggedIn },  // 首頁
     { to: '/about', text: t('nav.orders'), icon: 'mdi-barley', show: user.isLoggedIn },  // 關於
-    { to: '/orders', text: t('nav.explore'), icon: ' mdi-magnify-expand', show: user.isLoggedIn },  // 探索
-    { to: '/cart', text: t('nav.cart'), icon: 'mdi-bookshelf', show: user.isLoggedIn }, // 日記
+    { to: '/explore', text: t('nav.explore'), icon: ' mdi-magnify-expand', show: user.isLoggedIn },  // 探索
+    { to: '/journal', text: t('nav.journal'), icon: 'mdi-bookshelf', show: user.isLoggedIn }, // 日記
     { to: '/admin', text: t('nav.admin'), icon: 'mdi-cog', show: user.isLoggedIn && user.isAdmin },
   ]
 })
