@@ -216,7 +216,7 @@
     <!-- 置中按鈕 -->
     <div class="position-absolute d-flex align-center justify-center w-100 h-100">
       <v-btn color="#efeee7" size="x-large" @click="dialog = !dialog">
-        REPLY:_)
+        Receive:_)
       </v-btn>
     </div>
 
@@ -227,7 +227,7 @@
         class="mx-auto"
         elevation="16"
         max-width="500"
-        title="Send a reply:)"
+        title="Receive your question:)"
       >
         <template #append>
           <v-btn icon="$close" variant="text" @click="dialog = false"></v-btn>
@@ -408,7 +408,7 @@ const message = ref('');
   color: #140e02; /* 文字顏色，可根據需求調整 */
   padding: 10px 20px;
   border-radius: 10px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .text4 {
@@ -459,7 +459,7 @@ const message = ref('');
   width: 1px; /* 控制短線的長度 */
   height: 50px; /* 控制短線的粗細 */
   background-color: #102b05; /* 可以改成你想要的顏色 */
-  margin: 60px auto 0;
+  margin: 0px auto 0;
 }
 
 .small-text3 {
