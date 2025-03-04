@@ -10,7 +10,7 @@
       </v-col>
       <v-col cols="12" md="6">
         <p>{{ product.description }}</p>
-        <v-btn prepend-icon="mdi-magnify-expand" class="explore-btn" style="color: #102b05;" @click="goHome">{{ $t('nav.explore') }}</v-btn>
+        <v-btn prepend-icon="mdi-magnify-expand" class="explore-btn" style="color: #102b05;" @click="goHome">EXPLORE:_)</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -40,7 +40,7 @@ const getProduct = async () => {
   try {
     const { data } = await api.get('/product/' + route.params.id)
     product.value = data.result
-    document.title = product.value.name + ' | 購物網站'
+    document.title = product.value.name 
   } catch (error) {
     console.log(error)
     router.push('/')

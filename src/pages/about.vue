@@ -29,19 +29,19 @@
     </swiper-slide>
 
     <swiper-slide>
-      <div class="title2" data-swiper-parallax="-200">⼀個專屬於⽂字的匿名⽇記網站</div>
+      <div class="title2" data-swiper-parallax="-200">⼀個專屬於⽂字的匿名日記網站</div>
     </swiper-slide>
 
     <swiper-slide>
       <div class="text" data-swiper-parallax="-100">
         <p>
-          ⽤戶可以書寫⾃⼰的⽇記並選擇是否公開分享。<br>
-          公開的⽇記將化為永恆的記錄，<br>
+          ⽤戶可以書寫⾃⼰的日記並選擇是否公開分享。<br>
+          公開的日記將化為永恆的記錄，<br>
           無法更改為私⼈，也無法編輯或刪除，<br>
           真實呈現書寫當下的情感與思緒。<br>
-          ⽤戶可以探索他⼈的公開⽇記，收藏那些觸動⼼靈的⽂字，<br>
+          ⽤戶可以探索他⼈的公開日記，收藏那些觸動⼼靈的⽂字，<br>
           發掘每⼀個年輪故事背後的獨特⾵景。<br>
-          在年輪說，⽇記不僅是個⼈的紀錄，也是連結世界的橋樑。<br>
+          在年輪說，日記不僅是個⼈的紀錄，也是連結世界的橋樑。<br>
         </p>
       </div>
     </swiper-slide>
@@ -85,7 +85,7 @@ const modules = [Parallax, Pagination, Navigation];
 .text {
   font-size: 2rem;
   font-family: 'Noto Serif TC';
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .mySwiper {
